@@ -17,8 +17,26 @@ class Bus < Vehicle
     super(manufacturer, year, model, price)
     @seats = seats
   end
+  def string()
+    return super() + "\nSeats: #{@seats}"
+  end
+end
+
+class Lorry < Vehicle
+  def initialize(manufacturer, year, model, price, capacity)
+    super(manufacturer, year, model, price)
+  end
+  def string()
+    return super() + "\nCapacity: #{@capacity}"
+  end
 end
 
 merc = Vehicle.new("Mercedes", "2020", "S-Class", 1200000)
-puts merc.string()
+puts "Vehicle\n#{merc.string()}"
+
+isuzu  = Bus.new("Isuze", "2020", "Rodeo", 800000, 61)
+puts "bus\n#{isuzu.string()}"
+
+volvo = Lorry.new("Volvo", "2020", "FH", 500000, "100 tons")
+puts "lorry\n#{volvo.string()}"
   
